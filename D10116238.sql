@@ -43,9 +43,6 @@ CREATE TABLE IF NOT EXISTS `menber` (
 -- 資料表的匯出資料 `menber`
 --
 
-INSERT INTO `menber` (`No`, `ID`, `passwd`, `name`, `address`, `mobile`) VALUES
-(1, 'D10116238', 'ed61b3e10ef2988435234f23f45dc4da', '丁勇元', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
