@@ -2,7 +2,24 @@
 <html>
 <?php
 	require_once "./connect.php";
-	if($_POST["check_btn"]=="½T©wµù¥U")
+
+	if($_POST["check_btn"]=="è¨»å†Š" or $_POST["check_btn"]=="")
+	{
+		
+		echo "<form action='' method=post>";
+		echo "<font color=red>*ç‚ºå¿…å¡«æ¬„ä½</font></p>";
+		echo "<font color=red>*</font>å¸³è™Ÿã€€ã€€ã€€<input type=text name=id /></p>";
+		echo "<font color=red>*</font>å¯†ç¢¼ã€€ã€€ã€€<input type=password name=pwd /></p>";
+		echo "<font color=red>*</font>å§“åã€€ã€€ã€€<input type=text name=name /></p>";
+		echo "ä½å€ã€€ã€€ã€€ <input type=text name=addr /></p>";
+		echo "è¡Œå‹•é›»è©±ã€€ <input type=text name=mobile /></p>";
+		echo "<input type=submit name=check_btn value=ç¢ºå®šè¨»å†Š />";
+		echo "<input type=reset />";
+		echo "</form>";
+
+	}
+
+	if($_POST["check_btn"]=="ç¢ºå®šè¨»å†Š")
 	{
 		$id=$_POST["id"];
 		$pwd=$_POST["pwd"];
@@ -11,59 +28,41 @@
 		$mobile=$_POST["mobile"];
 		if(empty($id)|empty($pwd)|empty($name))
 		{
-
-			echo "<script type='text/javascript'>alert('*Äæ¦ì¥²¶·¶ñ¼g');</script>";
+			echo "<script type='text/javascript'>alert('*æ¬„ä½å¿…é ˆå¡«å¯«');</script>";
 			echo "<script type='text/javascript'>window.location='login.php'</script>";		
 		}else{
 			$sql="select * from member where id='$id'";
 			$result=mysql_query($sql);
-			if(empty($result))
+			//@$rows=mysql_num_rows($result);
+			if(empty($result)||$rows==0)
 			{
 				$pwd=md5('$pwd');
 				$sql="insert into menber(id,passwd,name,address,mobile) values('$id','$pwd','$name','$addr','$mobile')";
-				mysql_query($sql);
-				echo "<script type='text/javascript'>alert('$id ¤wµù¥U¦¨¥\');</script>";
+				mysql_query($sql) or die("<script type='text/javascript'>alert('æ­¤å¸³è™Ÿå·²æœ‰äººä½¿ç”¨ï¼Œè«‹é‡æ–°è¨»å†Š');window.location='login.php';</script>");
+
+				echo "<script type='text/javascript'>alert('$id å·²è¨»å†ŠæˆåŠŸ');</script>";
 				echo "<script type='text/javascript'>window.location='index.php'</script>";
 				
-			}else{
-				echo "<script type='text/javascript'>alert('¦¹±b¸¹¤w¦³¤H¨Ï¥Î¡A½Ğ­«·sµù¥U');</script>";
-				echo "<script type='text/javascript'>window.location='login.php'</script>";	
 			}
 
 		}
 	}
-	if($_POST["check_btn"]=="µù¥U" or $_POST["check_btn"]=="")
-	{
-		ob_start();
-		echo "<form action='' method=post>";
-		echo "<font color=red>*¬°¥²¶ñÄæ¦ì</font></p>";
-		echo "<font color=red>*</font>±b¸¹¡@¡@¡@<input type=text name=id /></p>";
-		echo "<font color=red>*</font>±K½X¡@¡@¡@<input type=password name=pwd /></p>";
-		echo "<font color=red>*</font>©m¦W¡@¡@¡@<input type=text name=name /></p>";
-		echo "¦í§}¡@¡@¡@ <input type=text name=addr /></p>";
-		echo "¦æ°Ê¹q¸Ü¡@ <input type=text name=mobile /></p>";
-		echo "<input type=submit name=check_btn value=½T©wµù¥U />";
-		echo "<input type=reset />";
-		echo "</form>";
-
-	}
-	if($_POST["check_btn"]=="µn¤J")
+	
+	if($_POST["check_btn"]=="ç™»å…¥")
 	{
 		$id=$_POST["id"];
 		$pwd=$_POST["pwd"];
-	
 		$sql="select * from menber where id='$id'";
 		$result=mysql_query($sql) or die("Not get data");
 		$rowdata=mysql_fetch_array($result);
 		$loginSuccessful=false;
-		/*if ($rowdata && $rowdata['passwd'])
-		{*/
-			if (md5('$pwd') && $rowdata[$pwd])
+		if ($rowdata && $rowdata['passwd'])
+		{
+			if (md5('$pwd') == $rowdata['passwd'])
 			{
 				$loginSuccessful=true;
-				echo $loginSuccessful;
 			}
-		//}
+		}
 	
 		if($loginSuccessful==true)
 		{
