@@ -1,11 +1,58 @@
-.login_content {
-	width:500px;
-	height:300px;
-	margin:50px;
+@media all and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2){
 
+	.login_content {
+		margin:0 auto;
+		width:200px;
+		height:400px;
+
+	}
+	.login_acc {
+		float:left;
+		width:297px;
+		height:110px;
+		border-bottom:3px solid #cdcdcd;
+		
+	}
+	.login_sel {
+		margin:0 auto;
+		width:300px;
+		height:200px;
+	}
+	.login_sel > input ,.login_content img {
+		float:left;
+		margin:0 auto;
+		padding:10px;
+		width:100px;
+		height:50px;
+	}
+	.login_sel >input {
+		padding:;
+	}
 }
-.login_acc {
-	width:300px;
-	border-right:3px solid #cdcdcd;
-	float:left;
+@media screen and (device-width:1920px) and (device-height:1080px)  {
+
+	.login_content {
+		margin:0 auto;
+		width:600px;
+		height:120px;
+
+	}
+	.login_acc {
+		float:left;
+		width:297px;
+		height:120px;
+		border-right:3px solid #cdcdcd;
+		
+	}
+	.login_sel {
+		float:left;
+		width:300px;
+		height:120px;
+	}
+	.login_sel input ,.login_sel img {
+		float:left;
+		width:100px;
+		height:50px;
+	}
 }
+

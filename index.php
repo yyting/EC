@@ -10,11 +10,11 @@
 			
 			帳號:<input type="text" name="id" /></p>
 			密碼:<input type="password" namd="pwd" /></p>
-			<input type="submit" name="check_btn" value="登入" /><input type="reset" /> 
-			
+			<input type="submit" name="check_btn" value="登入" /><input type="reset" />
 		</div>
-		<div>
-			<input type="submit" name="check_btn" value="註冊" style="width:100px;height:50px " />
+		<div class="login_sel">
+			<input type="submit" name="check_btn" value="註冊" />
+			<img src="./css/images/fb_logo.jpg" name="fb_login"/>
 		</div>
 	</form>
 </div>
