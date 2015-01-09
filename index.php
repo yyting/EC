@@ -5,9 +5,9 @@
 </head>
 <body>
 <div class="login_content">
+	<h2>會員登入</h2>
 	<form action="login.php" method="post">
 		<div class="login_acc">
-			
 			帳號:<input type="text" name="id" /></p>
 			密碼:<input type="password" namd="pwd" /></p>
 			<input type="submit" name="check_btn" value="登入" /><input type="reset" />
