@@ -1,7 +1,7 @@
 <?php
 	
-	$DBServer="127.0.0.1";
+	$DBServer="localhost";
 	$DBacc="root";
-	$DBpwd="takming";
-	$DBname="d10116238";
+	$DBpwd="D10116232";
+	$DBname="D10116238";
 ?>
